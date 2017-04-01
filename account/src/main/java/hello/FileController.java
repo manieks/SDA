@@ -28,11 +28,12 @@ public class FileController {
 
     private String content;
     @RequestMapping(path = "/files", method = {RequestMethod.POST})
-    public String zapis(@RequestParam(value = "lineToSave") String lineToSave) throws IOException{
+  // to wysyła parametr a nie body  public String zapis(@RequestParam(value = "lineToSave") String lineToSave) throws IOException{
+        public String zapis(@RequestBody String lineToSave) throws IOException{
         content = lineToSave;
         File file = new File("test.txt");
-        Writer writer = new FileWriter(file, true);
-        writer.write(System.lineSeparator() + lineToSave);
+        Writer writer = new FileWriter(file, true);  // mozna tu wyzerowac plik false
+        writer.write(lineToSave+ System.lineSeparator());
         writer.flush();
         return "zapisano";
     }
