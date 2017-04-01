@@ -3,11 +3,12 @@ package hello;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
 
 @RestController
-public class FileOperations {
+public class FileController {
 
 
     private static final String template = "Hello, %s!";
@@ -38,15 +39,15 @@ public class FileOperations {
 
 
     @RequestMapping(path = "/files", method = {RequestMethod.GET})
-    public String odczyt () throws IOException {
+    public ArrayList<String> odczyt () throws IOException {
         File file = new File("test.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        String allTXT = "";
         String line ;
+        ArrayList<String> list = new ArrayList<String >();
         while ((line = reader.readLine())!=null){
-            allTXT+=line+System.lineSeparator();
+            list.add(line);
         }
-        return allTXT;
+        return list;
     }
 
     public static void main(String[] args) throws IOException {
