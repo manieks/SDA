@@ -29,8 +29,18 @@ public class FileControllerTest {
     }
 
     @Test
+    public void delTest()throws Exception{
+        mockMvc.perform(MockMvcRequestBuilders.delete("/files"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(status().isOk());
+
+    }
+
+    @Test
     public void postTest() throws Exception {
-        new File("test.txt").delete();
+        //new File("test.txt").delete();
+        mockMvc.perform(MockMvcRequestBuilders.delete("/files"));
+
         mockMvc.perform(MockMvcRequestBuilders.post("/files")
                 .content("test3"))
                 .andDo(MockMvcResultHandlers.print());
@@ -45,5 +55,7 @@ public class FileControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("[0]", equalTo("test3")));
     }
+
+
 
 }

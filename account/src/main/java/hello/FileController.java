@@ -51,6 +51,14 @@ public class FileController {
         return list;
     }
 
+
+    @RequestMapping(path = "/files", method = {RequestMethod.DELETE})
+    public static void delFile() throws IOException{
+        File file = new File("test.txt");
+        file.delete();
+
+    }
+
     public static void main(String[] args) throws IOException {
         File file = new File("test.txt");
 
