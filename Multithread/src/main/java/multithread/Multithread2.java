@@ -1,10 +1,22 @@
 package multithread;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Created by mariusz.przybysz on 2017-04-03.
  */
 public class Multithread2 {
-    static int counter = 0;
+    //atomic
+    static AtomicInteger counter = new AtomicInteger(0);
+// to samo tylko w klasie napisane
+    static class Counter2{
+      static   int counter2 = 0;
+
+        static synchronized void increment(){
+            ++counter2;
+        }
+}
+
 
 
     public static void main(String[] args) throws InterruptedException {
@@ -20,7 +32,9 @@ public class Multithread2 {
         thread2.join();
         thread3.join();
 
+
         System.out.println(counter);
+        System.out.println(Counter2.counter2);
     }
 
 
@@ -29,7 +43,10 @@ public class Multithread2 {
         @Override
         public void run() {
             for (int i = 0; i < 1_000_000; ++i) {
-                ++counter;
+                /*synchronized (Multithread2.class){
+                ++counter;}*/
+                counter.incrementAndGet();
+                Counter2.increment();
             }
             System.out.println("finished : "+ Thread.currentThread().getName());
         }
