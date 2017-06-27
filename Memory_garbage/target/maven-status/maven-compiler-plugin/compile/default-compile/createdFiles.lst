@@ -1,0 +1,5 @@
+com\sda\jmx\SimpleAgent.class
+com\sda\memory\Demo.class
+com\sda\jmx\Demo.class
+com\sda\jmx\Hello.class
+com\sda\jmx\HelloMBean.class

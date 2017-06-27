@@ -1,0 +1,6 @@
+
+BUILD FAILED
+D:\Projects\SDAcademy\SDA_EX\TCMProject\TMCProjects\2013-OOProgrammingWithJava-PART1\week1-001.Name\nbproject\build-impl.xml:603: The following error occurred while executing this line:
+D:\Projects\SDAcademy\SDA_EX\TCMProject\TMCProjects\2013-OOProgrammingWithJava-PART1\week1-001.Name\nbproject\build-impl.xml:245: Error running javac.exe compiler
+
+Total time: 1 second
