@@ -1,0 +1,10 @@
+/target
+/.idea
+*.iml
+/.settings
+.classpath
+.project
+src/main/resources/
+src/test/
+.gitignore
+pom.xml
